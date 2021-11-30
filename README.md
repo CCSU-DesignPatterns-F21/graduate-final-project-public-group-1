@@ -45,7 +45,7 @@ public class AppConfig {
 ```
 # Example implementation:
 
-set the contents of your XML file as 
+In the Main class of your app, set your CacheConfig:
 ```
 //import some members of this package:
 import designpatterns.utils.ConfigCache;
