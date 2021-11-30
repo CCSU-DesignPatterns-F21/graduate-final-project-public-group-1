@@ -1,6 +1,7 @@
 package designpatterns.utils;
 
 
+import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 
@@ -15,7 +16,11 @@ import jakarta.xml.bind.JAXBException;
 
 public interface ConfigReader<T> {
 
-	public T GetConfig(URL location, Class<T> class1) throws JAXBException, URISyntaxException;
+	public T GetConfig(Class<T> class1) throws JAXBException, URISyntaxException, IOException;
+	public void setConfigData(byte[] data);
+	public byte[]  getConfigData();
+	
+
 }
 
 
