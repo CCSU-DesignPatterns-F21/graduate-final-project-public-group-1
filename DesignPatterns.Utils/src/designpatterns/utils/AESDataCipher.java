@@ -13,7 +13,7 @@ import javax.crypto.spec.SecretKeySpec;
 public class AESDataCipher extends DataCipher {
 
 	@Override
-	protected Cipher getCipher() throws NoSuchAlgorithmException, NoSuchPaddingException {
+	protected Cipher makeCipher() throws NoSuchAlgorithmException, NoSuchPaddingException {
 		return Cipher.getInstance(getAlgorithm());
 	}
 

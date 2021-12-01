@@ -24,7 +24,7 @@ import javax.crypto.NoSuchPaddingException;
 public abstract class DataCipher {
 
 	
-	protected abstract Cipher getCipher() throws NoSuchAlgorithmException, NoSuchPaddingException;
+	protected abstract Cipher makeCipher() throws NoSuchAlgorithmException, NoSuchPaddingException;
 	
 	protected abstract String getAlgorithm() ;
 	
@@ -36,7 +36,7 @@ public abstract class DataCipher {
 			throws InvalidKeyException, IllegalBlockSizeException, 
 				BadPaddingException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeySpecException, IOException {
 		
-		Cipher cipher = getCipher();
+		Cipher cipher = makeCipher();
 		Base64.Encoder encoder = Base64.getEncoder();
 		Key publicKey = getEncryptionKey(key);
 		cipher.init(Cipher.ENCRYPT_MODE, publicKey);
@@ -47,7 +47,7 @@ public abstract class DataCipher {
 			throws InvalidKeyException, IllegalBlockSizeException, 
 				BadPaddingException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeySpecException {
 
-		Cipher cipher = getCipher();
+		Cipher cipher = makeCipher();
 		Key privateKey = getDecryptionKey(key);
 		cipher.init(Cipher.DECRYPT_MODE, privateKey);
 		Base64.Decoder decoder = Base64.getDecoder();
