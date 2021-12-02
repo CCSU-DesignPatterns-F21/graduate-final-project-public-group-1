@@ -5,7 +5,7 @@
 .project
 .settings/
 /target/
-*/target/**
+**/target/**
 **/META-INF/
 !.mvn/wrapper/maven-wrapper.jar
 **/AppConfig.xml
