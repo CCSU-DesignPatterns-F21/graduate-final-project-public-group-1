@@ -14,10 +14,15 @@ import java.util.Base64;
 import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
 
+/**
+* concrete RSA DataCipher that create an instance of RSA Cipher to be used for encryption/decryption
+* @author Yassir
+*
+*/
 public class RSADataCipher extends DataCipher {
 
 	@Override
-	protected Cipher getCipher() throws NoSuchAlgorithmException, NoSuchPaddingException {
+	protected Cipher makeCipher() throws NoSuchAlgorithmException, NoSuchPaddingException {
 		return Cipher.getInstance(getAlgorithm());
 	}
 
@@ -29,30 +34,19 @@ public class RSADataCipher extends DataCipher {
 
 	@Override
 	protected Key getEncryptionKey(byte[] key) throws NoSuchAlgorithmException, InvalidKeySpecException {
-		return getPublicKey(key);
-	}
-
-	@Override
-	protected Key getDecryptionKey(byte[] key) throws NoSuchAlgorithmException, InvalidKeySpecException {
-		return getPrivateKey(key);
-	}
-	
-	private PrivateKey getPrivateKey(byte[] key)
-			throws NoSuchAlgorithmException, InvalidKeySpecException {
-		Base64.Decoder decoder = Base64.getDecoder();
-		EncodedKeySpec spec = new PKCS8EncodedKeySpec(decoder.decode(key));
-		KeyFactory kf = KeyFactory.getInstance(getAlgorithm());
-		return kf.generatePrivate(spec);
-
-	}
-
-	private PublicKey getPublicKey(byte[] key)
-			throws  NoSuchAlgorithmException, InvalidKeySpecException {
 		Base64.Decoder decoder = Base64.getDecoder();
 		EncodedKeySpec spec = new X509EncodedKeySpec(decoder.decode(key));
 		KeyFactory kf = KeyFactory.getInstance(getAlgorithm());
 		return kf.generatePublic(spec);
-
 	}
 
+	@Override
+	protected Key getDecryptionKey(byte[] key) throws NoSuchAlgorithmException, InvalidKeySpecException {
+		Base64.Decoder decoder = Base64.getDecoder();
+		EncodedKeySpec spec = new PKCS8EncodedKeySpec(decoder.decode(key));
+		KeyFactory kf = KeyFactory.getInstance(getAlgorithm());
+		return kf.generatePrivate(spec);
+	}
+	
+	
 }

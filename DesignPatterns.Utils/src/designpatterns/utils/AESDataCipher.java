@@ -9,14 +9,24 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
-
+/**
+ * AES implementation of DataCipher, allows encryption and decryption using AES algorithm
+ * @author Yassir
+ *
+ */
 public class AESDataCipher extends DataCipher {
 
 	@Override
-	protected Cipher getCipher() throws NoSuchAlgorithmException, NoSuchPaddingException {
+	/**
+	 * Factory method to generate an instance of AES Cipher
+	 */
+	protected Cipher makeCipher() throws NoSuchAlgorithmException, NoSuchPaddingException {
 		return Cipher.getInstance(getAlgorithm());
 	}
 
+	/**
+	 * Method that returns name of Algorithm
+	 */
 	@Override
 	protected String getAlgorithm() {
 		// TODO Auto-generated method stub
@@ -24,14 +34,21 @@ public class AESDataCipher extends DataCipher {
 	}
 
 	@Override
+	/**
+	 * Method returns encryption key
+	 */
 	protected Key getEncryptionKey(byte[] key) throws NoSuchAlgorithmException, InvalidKeySpecException {
 		return getSecretKey(key);
 	}
 
 	@Override
+	/**
+	 * Method returns decryption key
+	 */
 	protected Key getDecryptionKey(byte[] key) throws NoSuchAlgorithmException, InvalidKeySpecException {
 		return getSecretKey(key);
 	}
+	
 	private SecretKey getSecretKey(byte[] key)
 			throws NoSuchAlgorithmException, InvalidKeySpecException {
 		byte[] decodedKey = Base64.getDecoder().decode(key);

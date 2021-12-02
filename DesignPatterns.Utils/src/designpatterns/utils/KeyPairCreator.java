@@ -15,6 +15,7 @@ import java.util.Base64;
 /**
  * 
  * @author Yassir Factory Method Design Pattern
+ * abstract factory method to create key pair.  Class allows to create any Asymmetric keyPairGenerator
  *         https://www.novixys.com/blog/how-to-generate-rsa-keys-java/
  *
  */
