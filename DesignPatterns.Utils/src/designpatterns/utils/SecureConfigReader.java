@@ -15,6 +15,12 @@ import javax.crypto.NoSuchPaddingException;
 
 import jakarta.xml.bind.JAXBException;
 
+/**
+ * Concrete Secure configReader that decrypts settings file before binding it to a class
+ * @author Yassir
+ *
+ * @param <T>
+ */
 public class SecureConfigReader<T> extends ConfigReaderDecorator<T> {
 
 	private DataCipher dataCipher;

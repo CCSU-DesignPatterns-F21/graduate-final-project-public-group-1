@@ -4,6 +4,13 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 
+/**
+ * 
+ * @author Yassir
+ *
+ *Concrete factory to create secure configReader instance.  support XML and JSON
+ * @param <T>
+ */
 public class SecureAppConfigReaderFactory<T> implements ConfigReaderFactory<T> {
 	
 	private byte[] key;

@@ -3,7 +3,13 @@ package designpatterns.utils;
 import java.security.KeyPairGenerator;
 import java.security.NoSuchAlgorithmException;
 
-
+/**
+ * 
+ * @author Yassir
+ * Implementation of Key pair Creator, Class generate an RSA key pair and provides interface to save 
+ * key to file 
+ *
+ */
 public class RSAKeyPairCreator extends KeyPairCreator {
 
 	public RSAKeyPairCreator(int keyLength) throws NoSuchAlgorithmException {

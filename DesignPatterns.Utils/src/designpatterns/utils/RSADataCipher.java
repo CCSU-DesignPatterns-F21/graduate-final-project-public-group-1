@@ -14,6 +14,11 @@ import java.util.Base64;
 import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
 
+/**
+* concrete RSA DataCipher that create an instance of RSA Cipher to be used for encryption/decryption
+* @author Yassir
+*
+*/
 public class RSADataCipher extends DataCipher {
 
 	@Override

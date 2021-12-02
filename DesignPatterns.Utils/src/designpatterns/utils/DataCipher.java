@@ -19,7 +19,11 @@ import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 
-
+/**
+ * Abstract class that exposes Factory method to create Cipher. Class can use to encrypt/decrypt data 
+ * @author Yassir
+ *
+ */
 
 public abstract class DataCipher {
 

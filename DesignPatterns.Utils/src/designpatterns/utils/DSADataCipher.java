@@ -13,6 +13,11 @@ import java.util.Base64;
 import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
 
+/**
+ * concrete DSA DataCipher that create an instance of DSA Cipher to be used for encryption/decryption
+ * @author Yassir
+ *
+ */
 public class DSADataCipher extends DataCipher {
 
 	@Override

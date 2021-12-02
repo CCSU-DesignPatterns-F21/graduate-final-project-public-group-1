@@ -1,6 +1,10 @@
 package designpatterns.utils;
 
-
+/**
+ * Singleton to cache Settings of any type.  
+ * @author Yassir
+ *
+ */
 public class ConfigCache {
 
 	private static ConfigCache instance;

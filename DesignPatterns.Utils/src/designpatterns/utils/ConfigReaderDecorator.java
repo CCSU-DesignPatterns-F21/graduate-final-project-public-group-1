@@ -6,6 +6,12 @@ import java.net.URL;
 
 import jakarta.xml.bind.JAXBException;
 
+/**
+ * ConfigReader decorator to add extra functionality to configReader 
+ * @author Yassir
+ *
+ * @param <T>
+ */
 public class ConfigReaderDecorator<T> implements ConfigReader<T>  {
 
 	protected ConfigReader<T> wrapee;

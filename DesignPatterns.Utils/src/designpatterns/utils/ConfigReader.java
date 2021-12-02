@@ -10,7 +10,7 @@ import jakarta.xml.bind.JAXBException;
 /**
  * 
  * @author Yassir
- *
+ * ConfigReader interface 
  * @param <T>
  */
 

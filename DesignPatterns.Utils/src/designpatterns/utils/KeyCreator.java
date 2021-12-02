@@ -11,6 +11,7 @@ import javax.crypto.SecretKey;
 /**
  * 
  * @author Yassir Factory Method Design Pattern
+ * abstract factory method to create secret key.  Class allows to create any symmetric keyGenerator
  *         https://www.novixys.com/blog/how-to-generate-rsa-keys-java/
  *
  */
